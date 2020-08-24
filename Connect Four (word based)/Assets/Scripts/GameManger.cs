@@ -10,6 +10,10 @@ public class GameManger : MonoBehaviour
 {
     [SerializeField] Text[] textFields;
     WordData data;
+
+    //for generating random numbers
+    int lastNumber;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,5 +31,19 @@ public class GameManger : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void RollTheDice()
+    {
+        print("the number you rolled is " + GetRandomNumber(1, 6));
+    }
+
+    int GetRandomNumber(int min, int max)
+    {
+        int rand = UnityEngine.Random.Range(min, max);
+        while (rand == lastNumber)
+            rand = UnityEngine.Random.Range(min, max);
+        lastNumber = rand;
+        return rand;
     }
 }
