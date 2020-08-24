@@ -11,6 +11,8 @@ public class GameManger : MonoBehaviour
     [SerializeField] Text[] textFields;
     WordData data;
 
+    [SerializeField] GameObject[] squareSelector;
+
     //for generating random numbers
     int lastNumber;
 
@@ -35,6 +37,8 @@ public class GameManger : MonoBehaviour
 
     public void RollTheDice()
     {
+        //this method is called on button press (when you click the dice)
+
         print("the number you rolled is " + GetRandomNumber(1, 6));
     }
 
