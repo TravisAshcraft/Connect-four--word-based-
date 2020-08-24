@@ -9,21 +9,24 @@ public class MenuScript : MonoBehaviour
 {
     [SerializeField] GameObject settings;
     [SerializeField] GameObject wordsCont;
-    [SerializeField] GameObject menuTitle;
-    [SerializeField] GameObject transistionCirle;
     [SerializeField] Button playBtn;
     [SerializeField] Button settingsBtn;
     [SerializeField] Button saveBtn;
     [SerializeField] Button closeBtn;
 
-    
-
+    [SerializeField] TMP_InputField[] words;
+    WordData data;
     void Start()
     {
         settingsBtn.onClick.AddListener(BringSettings);
-        GameStartAnims();
+        data = FindObjectOfType<WordData>();
     }
 
+    void BeginGame()
+    {
+        SceneManager.LoadScene("Game");
+        
+    }
 
     void BringSettings()
     {
@@ -39,26 +42,28 @@ public class MenuScript : MonoBehaviour
 
     void SaveSettings()
     {
+        List<string> list = new List<string>();
         bool test = true;
-        Test[] words = wordsCont.GetComponentsInChildren<Test>();
         for (int i = 0; i < words.Length; i++)
         {
-            Debug.Log(words[i].gameObject.name);
+            if (words[i].text == "")
+            {
+                test = false;
+            }
+            else
+            {
+                list.Add(words[i].text);
+            }
         }
-        playBtn.interactable = true;
-        //playBtn.onClick.AddListener(BeginGame);
+        if (test)
+        {
+            data.updateData(list);
+            playBtn.interactable = true;
+            playBtn.onClick.AddListener(BeginGame);
+            CloseSettings();
+        }
     }
-
-   // public void BeginGame()
-   // {
-     //   SceneManager.LoadScene("Game");
-    //}
-
-    public void GameStartAnims()
-    {
-        Animator animator = menuTitle.GetComponent<Animator>();
-        animator.SetTrigger("wiggle");
-    }
+}
 
     
-}
+
