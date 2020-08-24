@@ -16,6 +16,14 @@ public class GameManger : MonoBehaviour
     //for generating random numbers
     int lastNumber;
 
+    public enum CurrentPlayerTurn
+    {
+        PLAYER_ONE,
+        PLAYER_TWO
+    }
+    public CurrentPlayerTurn CurrentTurn;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,12 +35,6 @@ public class GameManger : MonoBehaviour
             tx.text = data.returnString(counter);
             counter++;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void RollTheDice()
@@ -49,5 +51,19 @@ public class GameManger : MonoBehaviour
             rand = UnityEngine.Random.Range(min, max);
         lastNumber = rand;
         return rand;
+    }
+
+    public void ChangeTurns()
+    {
+        switch (CurrentTurn)
+        {
+            case CurrentPlayerTurn.PLAYER_ONE:
+                CurrentTurn = CurrentPlayerTurn.PLAYER_TWO;
+                break;
+
+            case CurrentPlayerTurn.PLAYER_TWO:
+                CurrentTurn = CurrentPlayerTurn.PLAYER_ONE;
+                break;
+        }
     }
 }
