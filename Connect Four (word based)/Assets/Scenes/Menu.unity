@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!114 &3203854 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3717355646911999014, guid: 89a3c8564dd47404587deb512ec17ca6,
@@ -1327,6 +1328,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 238695192}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &241650156
+=======
+--- !u!1 &10967093
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1334,31 +1338,31 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 241650159}
-  - component: {fileID: 241650158}
-  - component: {fileID: 241650157}
+  - component: {fileID: 10967096}
+  - component: {fileID: 10967095}
+  - component: {fileID: 10967094}
   m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
+  m_Name: Camera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &241650157
+--- !u!81 &10967094
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241650156}
+  m_GameObject: {fileID: 10967093}
   m_Enabled: 1
---- !u!20 &241650158
+--- !u!20 &10967095
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241650156}
+  m_GameObject: {fileID: 10967093}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -1378,9 +1382,9 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1395,20 +1399,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!4 &241650159
+--- !u!4 &10967096
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241650156}
+  m_GameObject: {fileID: 10967093}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.6197615, y: 1.4863218, z: -2231.9272}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!114 &250650359 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3717355646911999014, guid: 89a3c8564dd47404587deb512ec17ca6,
@@ -15937,3 +15942,5 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5339002499277985016}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Stashed changes
