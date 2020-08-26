@@ -27,6 +27,8 @@ public class SelectTile : MonoBehaviour
             tileSelector.GetComponent<Image>().color = whoSelected[0];
             button.enabled = false;
 
+            //tell the game manager that this selector is already active.
+
             gameManager.ChangeTurns();
         }
         else if(gameManager.CurrentTurn == GameManger.CurrentPlayerTurn.PLAYER_TWO)
