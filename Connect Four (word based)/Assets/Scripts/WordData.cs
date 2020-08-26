@@ -24,14 +24,6 @@ public class WordData : MonoBehaviour
         return val;
     }
 
-    public void printData()
-    {
-        foreach (string val in data)
-        {
-            Debug.Log(val);
-        }
-    }
-
     public void randomizeData()
     {
         for (int i = 0; i < data.Count; i++)
