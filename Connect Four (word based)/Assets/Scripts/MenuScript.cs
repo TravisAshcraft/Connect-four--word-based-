@@ -40,7 +40,7 @@ public class MenuScript : MonoBehaviour
         settings.SetActive(false);
     }
 
-    void SaveSettings()
+    public void SaveSettings()
     {
         List<string> list = new List<string>();
         bool test = true;
