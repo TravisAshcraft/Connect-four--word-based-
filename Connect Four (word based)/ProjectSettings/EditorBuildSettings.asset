@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 7dbd83c1f6cd38645b6bd78ba0bb5839
   - enabled: 1
-    path: Assets/Scenes/Multiplayer.unity
+    path: Assets/Scenes/oldMultiplayer.unity
     guid: 3f8d3efc257da50409d10bdc9ad3c334
   - enabled: 0
     path: Assets/Remake/Scenes/Game.unity

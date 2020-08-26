@@ -12,6 +12,8 @@ public class GameManger : MonoBehaviour
     [SerializeField] Text[] textFields;
     WordData data;
 
+    [SerializeField] GameObject[] squareHiders;
+
     [SerializeField] GameObject[] squareSelector;
 
     //for generating random numbers
@@ -71,11 +73,226 @@ public class GameManger : MonoBehaviour
         currentGameMode = GameMode.MULTIPLAYER;
     }
 
-    public void RollTheDice()
+    public void RollTheDice_One()
     {
-        //this method is called on button press (when you click the dice)
+        //rolls the first dice
+        int diceRollOne = GetRandomNumber(1, 7);
 
-        print("the number you rolled is " + GetRandomNumber(1, 6));
+        print("the first dice rolled " + diceRollOne);
+
+        if(diceRollOne == 1)
+        {
+            squareHiders[0].SetActive(false);
+        }
+        else if (diceRollOne == 2)
+        {
+            squareHiders[6].SetActive(false);
+        }
+        else if (diceRollOne == 3)
+        {
+            squareHiders[12].SetActive(false);
+        }
+        else if (diceRollOne == 4)
+        {
+            squareHiders[18].SetActive(false);
+        }
+        else if (diceRollOne == 5)
+        {
+            squareHiders[24].SetActive(false);
+        }
+        else if(diceRollOne == 6)
+        {
+            squareHiders[30].SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Error rolling dice one.");
+        }
+    }
+
+    public void RollTheDice_Two()
+    {
+        //rolls the second dice
+        int diceRollTwo = GetRandomNumber(1, 7);
+
+        print("the second dice rolled " + diceRollTwo);
+
+        if (diceRollTwo == 1)
+        {
+            squareHiders[1].SetActive(false);
+        }
+        else if (diceRollTwo == 2)
+        {
+            squareHiders[7].SetActive(false);
+        }
+        else if (diceRollTwo == 3)
+        {
+            squareHiders[13].SetActive(false);
+        }
+        else if (diceRollTwo == 4)
+        {
+            squareHiders[19].SetActive(false);
+        }
+        else if (diceRollTwo == 5)
+        {
+            squareHiders[25].SetActive(false);
+        }
+        else if (diceRollTwo == 6)
+        {
+            squareHiders[31].SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Error rolling dice two.");
+        }
+    }
+
+    public void RollTheDice_Three()
+    {
+        //rolls the third dice
+        int diceRollThree = GetRandomNumber(1, 7);
+
+        print("the third dice rolled " + diceRollThree);
+
+        if (diceRollThree == 1)
+        {
+            squareHiders[2].SetActive(false);
+        }
+        else if (diceRollThree == 2)
+        {
+            squareHiders[8].SetActive(false);
+        }
+        else if (diceRollThree == 3)
+        {
+            squareHiders[14].SetActive(false);
+        }
+        else if (diceRollThree == 4)
+        {
+            squareHiders[20].SetActive(false);
+        }
+        else if (diceRollThree == 5)
+        {
+            squareHiders[26].SetActive(false);
+        }
+        else if (diceRollThree == 6)
+        {
+            squareHiders[32].SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Error rolling dice three.");
+        }
+    }
+
+    public void RollTheDice_Four()
+    {
+        //rolls the fourth dice
+        int diceRollFour = GetRandomNumber(1, 7);
+
+        print("the fourth dice rolled " + diceRollFour);
+
+        if (diceRollFour == 1)
+        {
+            squareHiders[3].SetActive(false);
+        }
+        else if (diceRollFour == 2)
+        {
+            squareHiders[9].SetActive(false);
+        }
+        else if (diceRollFour == 3)
+        {
+            squareHiders[15].SetActive(false);
+        }
+        else if (diceRollFour == 4)
+        {
+            squareHiders[21].SetActive(false);
+        }
+        else if (diceRollFour == 5)
+        {
+            squareHiders[27].SetActive(false);
+        }
+        else if (diceRollFour == 6)
+        {
+            squareHiders[33].SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Error rolling dice four.");
+        }
+    }
+
+    public void RollTheDice_Five()
+    {
+        //rolls the fifth dice
+        int diceRollFive = GetRandomNumber(1, 7);
+
+        print("the fifth dice rolled " + diceRollFive);
+
+        if (diceRollFive == 1)
+        {
+            squareHiders[4].SetActive(false);
+        }
+        else if (diceRollFive == 2)
+        {
+            squareHiders[10].SetActive(false);
+        }
+        else if (diceRollFive == 3)
+        {
+            squareHiders[16].SetActive(false);
+        }
+        else if (diceRollFive == 4)
+        {
+            squareHiders[22].SetActive(false);
+        }
+        else if (diceRollFive == 5)
+        {
+            squareHiders[28].SetActive(false);
+        }
+        else if (diceRollFive == 6)
+        {
+            squareHiders[34].SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Error rolling dice five.");
+        }
+    }
+
+    public void RollTheDice_Six()
+    {
+        //rolls the sixth dice
+        int diceRollSix = GetRandomNumber(1, 7);
+
+        print("the sixth dice rolled " + diceRollSix);
+
+        if (diceRollSix == 1)
+        {
+            squareHiders[5].SetActive(false);
+        }
+        else if (diceRollSix == 2)
+        {
+            squareHiders[11].SetActive(false);
+        }
+        else if (diceRollSix == 3)
+        {
+            squareHiders[17].SetActive(false);
+        }
+        else if (diceRollSix == 4)
+        {
+            squareHiders[23].SetActive(false);
+        }
+        else if (diceRollSix == 5)
+        {
+            squareHiders[29].SetActive(false);
+        }
+        else if (diceRollSix == 6)
+        {
+            squareHiders[35].SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Error rolling dice six.");
+        }
     }
 
     int GetRandomNumber(int min, int max)
