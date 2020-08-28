@@ -15,8 +15,10 @@ public class MenuScript : MonoBehaviour
     [SerializeField] Button closeBtn;
 
     [SerializeField] TMP_InputField[] words;
-    WordData data;
-    void Start()
+    WordCollector wordCollector;
+ 
+
+   /* void Start()
     {
         settingsBtn.onClick.AddListener(BringSettings);
         data = FindObjectOfType<WordData>();
@@ -62,7 +64,7 @@ public class MenuScript : MonoBehaviour
             playBtn.onClick.AddListener(BeginGame);
             CloseSettings();
         }
-    }
+    }*/
 }
 
     
