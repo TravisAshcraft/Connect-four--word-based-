@@ -36,10 +36,10 @@ public class WordCollector : MonoBehaviour
     {
         words.Add (inputField.GetComponent<Text>().text); //creates words variable using the inputField
         //wordList.Add(words);// adds the word to the list
-        //if(words != "")// increments the counter by one
-        //{
+        if(inputField.GetComponent<Text>().text != "")// increments the counter by one
+        {
             wordCount++;
-        //}
+        }
         
         eraseField.text = ""; // erases the word after each add
         
@@ -64,7 +64,7 @@ public class WordCollector : MonoBehaviour
 
     public void SaveWords()// saves the words and allows the player to select play
     {
-        if (wordCount > 6)
+        if (wordCount > 36)
         {
             bool testForPlay = true;
 
