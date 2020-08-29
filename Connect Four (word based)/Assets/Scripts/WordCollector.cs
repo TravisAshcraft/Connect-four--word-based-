@@ -77,14 +77,14 @@ public class WordCollector : MonoBehaviour
         }
     }
 
-    public void LoadSinglePlayer()
+    void LoadSinglePlayer()
     {
         wordPool.GetComponent<WordPool>().inputWords = words;
 
         SceneManager.LoadScene("SinglePlayer");
     }
 
-    public void LoadMultiPlayer()
+    void LoadMultiPlayer()
     {
         wordPool.GetComponent<WordPool>().inputWords = words;
 

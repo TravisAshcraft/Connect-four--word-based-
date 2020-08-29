@@ -11,9 +11,4 @@ public class WordPool : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
     }
-
-    void TakeWords()
-    {
-
-    }
 }

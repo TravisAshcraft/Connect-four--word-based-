@@ -436,6 +436,16 @@ public class GameManger : MonoBehaviour
         Debug.Log("AI initialized");
     }
 
+    public void SetSinglePlayer()
+    {
+        currentGameMode = GameMode.SINGLEPLAYER;
+    }
+
+    public void SetMultiPlayer()
+    {
+        currentGameMode = GameMode.MULTIPLAYER;
+    }
+
     public void AITURN()
     {
         enemyRoll = GetRandomNumber(0, 35);
