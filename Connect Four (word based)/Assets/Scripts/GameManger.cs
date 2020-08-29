@@ -9,8 +9,10 @@ using Image = UnityEngine.UI.Image;
 
 public class GameManger : MonoBehaviour
 {
-    [SerializeField] Text[] textFields;
-    WordData data;
+    [SerializeField] List<string> textFields = new List<string>();
+    //WordData data;
+
+    [SerializeField] Text[] theWords;
 
     [SerializeField] GameObject[] squareHiders;
 
@@ -39,7 +41,6 @@ public class GameManger : MonoBehaviour
     public int enemyRoll;
     public Color aiSelect_Color;
 
-    // Start is called before the first frame update
     void Start()
     {
         //data = FindObjectOfType<WordData>();
@@ -52,6 +53,9 @@ public class GameManger : MonoBehaviour
         //}
 
         SettingGameStart();
+
+        //populate the text fields with the words we input
+        Invoke("PopulateTextFields", 0.2f);
     }
 
     private void FixedUpdate()
@@ -71,6 +75,60 @@ public class GameManger : MonoBehaviour
     public void SetGameMode_Multiplayer()
     {
         currentGameMode = GameMode.MULTIPLAYER;
+    }
+
+    public void PopulateTextFields()
+    {
+        textFields = GameObject.Find("WordPool").GetComponent<WordPool>().inputWords;
+
+        int numberOfWordsUsed = GameObject.Find("WordPool").GetComponent<WordPool>().inputWords.Count;
+
+        for(int i = 0; i < theWords.Length; i++)
+        {
+            theWords[i].text = textFields[GetRandomNumber(0, numberOfWordsUsed)].ToString();
+        }
+
+
+        //below is a horrible sloppy way of populating, but it does what the for loop above does
+
+        //theWords[0].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[1].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[2].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[3].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[4].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[5].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[6].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[7].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[8].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[9].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[10].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[11].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[12].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[13].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[14].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[15].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[16].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[17].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[18].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[19].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[20].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[21].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[22].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[23].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[24].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[25].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[26].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[27].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[28].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[29].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[30].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[31].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[32].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[33].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[34].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+        //theWords[35].text = textFields[GetRandomNumber(1, numberOfWordsUsed)].ToString();
+
+        Debug.Log("The text fields are populated");
     }
 
     public void RollTheDice_One()

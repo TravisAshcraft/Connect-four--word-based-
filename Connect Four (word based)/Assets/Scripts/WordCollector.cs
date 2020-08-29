@@ -11,7 +11,9 @@ public class WordCollector : MonoBehaviour
 {
     [SerializeField] Button playButton;
 
-    public string words;
+    GameObject wordPool;
+    public List<string> words;
+
     public GameObject inputField;
     public InputField eraseField;
     public TMP_Text text;
@@ -21,8 +23,8 @@ public class WordCollector : MonoBehaviour
 
     private void Start()
     {
+        wordPool = GameObject.Find("WordPool");
         wordCount = 0;
-        
     }
 
     public void Update()
@@ -32,13 +34,13 @@ public class WordCollector : MonoBehaviour
 
     public void StoreName() //stores the words into a List
     {
-        words = inputField.GetComponent<Text>().text; //creates words variable using the inputField
-        wordList.Add(words);// adds the word to the list
-        if(words != "")// increments the counter by one
-        {
+        words.Add (inputField.GetComponent<Text>().text); //creates words variable using the inputField
+        //wordList.Add(words);// adds the word to the list
+        //if(words != "")// increments the counter by one
+        //{
             wordCount++;
-        }
-         
+        //}
+        
         eraseField.text = ""; // erases the word after each add
         
         Debug.Log(words);
@@ -47,7 +49,6 @@ public class WordCollector : MonoBehaviour
     public void updateCounter() // updates the counter
     {
         text.SetText(wordCount+"/36 words");
-        
     }
 
     public void randomizeData()// Sets the words at random using a for loop
@@ -70,15 +71,23 @@ public class WordCollector : MonoBehaviour
             if (testForPlay)
             {
                 playButton.interactable = true;
-                playButton.onClick.AddListener(BeginGame);
+
+                //playButton.onClick.AddListener(BeginGame);
             }
         }
-        
-        
     }
 
-    public void BeginGame()
+    public void LoadSinglePlayer()
     {
+        wordPool.GetComponent<WordPool>().inputWords = words;
+
         SceneManager.LoadScene("SinglePlayer");
+    }
+
+    public void LoadMultiPlayer()
+    {
+        wordPool.GetComponent<WordPool>().inputWords = words;
+
+        SceneManager.LoadScene("Multiplayer");
     }
 }
