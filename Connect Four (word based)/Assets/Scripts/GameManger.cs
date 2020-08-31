@@ -37,6 +37,7 @@ public class GameManger : MonoBehaviour
     public CurrentPlayerTurn CurrentTurn;
 
     //AI Variables
+    bool aiTurnSuccess = false;
     public bool[] alreadySelected;
     public int enemyRoll;
     public Color aiSelect_Color;
@@ -86,8 +87,11 @@ public class GameManger : MonoBehaviour
 
                 AITURN();
 
-                ChangeTurns();
-
+                if (aiTurnSuccess)
+                {
+                    ChangeTurns();
+                    aiTurnSuccess = false;
+                }
                 break;
         }
     }
@@ -572,71 +576,95 @@ public class GameManger : MonoBehaviour
             squareSelector[0].SetActive(true);
             squareSelector[0].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[0].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 0 && alreadySelected[0] == true)
+        if (enemyRoll == 0 && alreadySelected[0] == true)
         {
-            enemyRollColumnOne();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
         
+
         if (enemyRoll == 1 && alreadySelected[6] == false)
         {
             alreadySelected[6] = true;
             squareSelector[6].SetActive(true);
             squareSelector[6].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[6].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 1 && alreadySelected[6] == true)
+        if (enemyRoll == 1 && alreadySelected[6] == true)
         {
-            enemyRollColumnOne();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
         
+
         if (enemyRoll == 2 && alreadySelected[12] == false)
         {
             alreadySelected[12] = true;
             squareSelector[12].SetActive(true);
             squareSelector[12].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[12].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 2 && alreadySelected[12] == true)
+        if (enemyRoll == 2 && alreadySelected[12] == true)
         {
-            enemyRollColumnOne();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
         
+
         if (enemyRoll == 3 && alreadySelected[18] == false)
         {
             alreadySelected[18] = true;
             squareSelector[18].SetActive(true);
             squareSelector[18].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[18].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 3 && alreadySelected[18] == false)
+        if (enemyRoll == 3 && alreadySelected[18] == false)
         {
-            enemyRollColumnOne();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
         
+
         if (enemyRoll == 4 && alreadySelected[24] == false)
         {
             alreadySelected[24] = true;
             squareSelector[24].SetActive(true);
             squareSelector[24].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[24].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 4 && alreadySelected[24] == true)
+        if (enemyRoll == 4 && alreadySelected[24] == true)
         {
-            enemyRollColumnOne();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
         
+
         if (enemyRoll == 5 && alreadySelected[30] == false)
         {
             alreadySelected[30] = true;
             squareSelector[30].SetActive(true);
             squareSelector[30].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[30].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 5 && alreadySelected[30] == true)
+        if (enemyRoll == 5 && alreadySelected[30] == true)
         {
-            enemyRollColumnOne();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         //if there is only one remaining square
         else
@@ -647,6 +675,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[30].SetActive(true);
                 squareSelector[30].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[30].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[0] && alreadySelected[6] && alreadySelected[12] && alreadySelected[18] && alreadySelected[30])
             {
@@ -654,6 +684,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[24].SetActive(true);
                 squareSelector[24].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[24].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[0] && alreadySelected[6] && alreadySelected[12] && alreadySelected[24] && alreadySelected[30])
             {
@@ -661,6 +693,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[18].SetActive(true);
                 squareSelector[18].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[18].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[0] && alreadySelected[6] && alreadySelected[18] && alreadySelected[24] && alreadySelected[30])
             {
@@ -668,6 +702,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[12].SetActive(true);
                 squareSelector[12].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[12].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[0] && alreadySelected[12] && alreadySelected[18] && alreadySelected[24] && alreadySelected[30])
             {
@@ -675,6 +711,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[6].SetActive(true);
                 squareSelector[6].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[6].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[6] && alreadySelected[12] && alreadySelected[18] && alreadySelected[24] && alreadySelected[30])
             {
@@ -682,6 +720,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[0].SetActive(true);
                 squareSelector[0].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[0].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else
             {
@@ -701,11 +741,15 @@ public class GameManger : MonoBehaviour
             squareSelector[1].SetActive(true);
             squareSelector[1].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[1].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 6 && alreadySelected[1] == true)
+        if (enemyRoll == 6 && alreadySelected[1] == true)
         {
-            enemyRollColumnTwo();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 7 && alreadySelected[7] == false)
         {
@@ -713,11 +757,15 @@ public class GameManger : MonoBehaviour
             squareSelector[7].SetActive(true);
             squareSelector[7].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[7].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 7 && alreadySelected[7] == true)
+        if (enemyRoll == 7 && alreadySelected[7] == true)
         {
-            enemyRollColumnTwo();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 8 && alreadySelected[13] == false)
         {
@@ -725,11 +773,15 @@ public class GameManger : MonoBehaviour
             squareSelector[13].SetActive(true);
             squareSelector[13].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[13].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 8 && alreadySelected[13] == true)
+        if (enemyRoll == 8 && alreadySelected[13] == true)
         {
-            enemyRollColumnTwo();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 9 && alreadySelected[19] == false)
         {
@@ -737,11 +789,15 @@ public class GameManger : MonoBehaviour
             squareSelector[19].SetActive(true);
             squareSelector[19].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[19].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 9 && alreadySelected[19] == true)
+        if (enemyRoll == 9 && alreadySelected[19] == true)
         {
-            enemyRollColumnTwo();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 10 && alreadySelected[25] == false)
         {
@@ -749,11 +805,15 @@ public class GameManger : MonoBehaviour
             squareSelector[25].SetActive(true);
             squareSelector[25].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[25].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 10 && alreadySelected[25] == true)
+        if (enemyRoll == 10 && alreadySelected[25] == true)
         {
-            enemyRollColumnTwo();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 11 && alreadySelected[31] == false)
         {
@@ -761,11 +821,15 @@ public class GameManger : MonoBehaviour
             squareSelector[31].SetActive(true);
             squareSelector[31].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[31].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 11 && alreadySelected[31] == true)
+        if (enemyRoll == 11 && alreadySelected[31] == true)
         {
-            enemyRollColumnTwo();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         else
         {
@@ -775,6 +839,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[31].SetActive(true);
                 squareSelector[31].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[31].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[1] && alreadySelected[7] && alreadySelected[13] && alreadySelected[19] && alreadySelected[31])
             {
@@ -782,6 +848,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[25].SetActive(true);
                 squareSelector[25].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[25].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[1] && alreadySelected[7] && alreadySelected[13] && alreadySelected[25] && alreadySelected[31])
             {
@@ -789,6 +857,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[19].SetActive(true);
                 squareSelector[19].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[19].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[1] && alreadySelected[7] && alreadySelected[19] && alreadySelected[25] && alreadySelected[31])
             {
@@ -796,6 +866,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[13].SetActive(true);
                 squareSelector[13].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[13].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[1] && alreadySelected[13] && alreadySelected[19] && alreadySelected[25] && alreadySelected[31])
             {
@@ -803,6 +875,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[7].SetActive(true);
                 squareSelector[7].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[7].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[7] && alreadySelected[13] && alreadySelected[19] && alreadySelected[25] && alreadySelected[31])
             {
@@ -810,6 +884,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[1].SetActive(true);
                 squareSelector[1].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[1].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
 
             else
@@ -831,11 +907,15 @@ public class GameManger : MonoBehaviour
             squareSelector[2].SetActive(true);
             squareSelector[2].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[2].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 12 && alreadySelected[2] == true)
+        if (enemyRoll == 12 && alreadySelected[2] == true)
         {
-            enemyRollColumnThree();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 13 && alreadySelected[8] == false)
         {
@@ -843,11 +923,15 @@ public class GameManger : MonoBehaviour
             squareSelector[8].SetActive(true);
             squareSelector[8].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[8].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 13 && alreadySelected[8] == true)
+        if (enemyRoll == 13 && alreadySelected[8] == true)
         {
-            enemyRollColumnThree();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 14 && alreadySelected[14] == false)
         {
@@ -855,11 +939,15 @@ public class GameManger : MonoBehaviour
             squareSelector[14].SetActive(true);
             squareSelector[14].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[14].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 14 && alreadySelected[14] == true)
+        if (enemyRoll == 14 && alreadySelected[14] == true)
         {
-            enemyRollColumnThree();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 15 && alreadySelected[20] == false)
         {
@@ -867,11 +955,15 @@ public class GameManger : MonoBehaviour
             squareSelector[20].SetActive(true);
             squareSelector[20].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[20].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 15 && alreadySelected[20] == true)
+        if (enemyRoll == 15 && alreadySelected[20] == true)
         {
-            enemyRollColumnThree();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 16 && alreadySelected[26] == false)
         {
@@ -879,11 +971,15 @@ public class GameManger : MonoBehaviour
             squareSelector[26].SetActive(true);
             squareSelector[26].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[26].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 16 && alreadySelected[26] == true)
+        if (enemyRoll == 16 && alreadySelected[26] == true)
         {
-            enemyRollColumnThree();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 17 && alreadySelected[32] == false)
         {
@@ -891,11 +987,15 @@ public class GameManger : MonoBehaviour
             squareSelector[32].SetActive(true);
             squareSelector[32].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[32].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 17 && alreadySelected[32] == true)
+        if (enemyRoll == 17 && alreadySelected[32] == true)
         {
-            enemyRollColumnThree();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         else
         {
@@ -905,6 +1005,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[32].SetActive(true);
                 squareSelector[32].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[32].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[2] && alreadySelected[8] && alreadySelected[14] && alreadySelected[20] && alreadySelected[32])
             {
@@ -912,6 +1014,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[26].SetActive(true);
                 squareSelector[26].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[26].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[2] && alreadySelected[8] && alreadySelected[14] && alreadySelected[26] && alreadySelected[32])
             {
@@ -919,6 +1023,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[20].SetActive(true);
                 squareSelector[20].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[20].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[2] && alreadySelected[8] && alreadySelected[20] && alreadySelected[26] && alreadySelected[32])
             {
@@ -926,6 +1032,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[14].SetActive(true);
                 squareSelector[14].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[14].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[2] && alreadySelected[14] && alreadySelected[20] && alreadySelected[26] && alreadySelected[32])
             {
@@ -933,6 +1041,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[8].SetActive(true);
                 squareSelector[8].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[8].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[8] && alreadySelected[14] && alreadySelected[20] && alreadySelected[26] && alreadySelected[32])
             {
@@ -940,6 +1050,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[2].SetActive(true);
                 squareSelector[2].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[2].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
 
             else
@@ -960,11 +1072,15 @@ public class GameManger : MonoBehaviour
             squareSelector[3].SetActive(true);
             squareSelector[3].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[3].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 18 && alreadySelected[3] == true)
+        if (enemyRoll == 18 && alreadySelected[3] == true)
         {
-            enemyRollColumnFour();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 19 && alreadySelected[9] == false)
         {
@@ -972,11 +1088,15 @@ public class GameManger : MonoBehaviour
             squareSelector[9].SetActive(true);
             squareSelector[9].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[9].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 19 && alreadySelected[9] == true)
+        if (enemyRoll == 19 && alreadySelected[9] == true)
         {
-            enemyRollColumnFour();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 20 && alreadySelected[15] == false)
         {
@@ -984,11 +1104,15 @@ public class GameManger : MonoBehaviour
             squareSelector[15].SetActive(true);
             squareSelector[15].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[15].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 20 && alreadySelected[15] == true)
+        if (enemyRoll == 20 && alreadySelected[15] == true)
         {
-            enemyRollColumnFour();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+        
 
         if (enemyRoll == 21 && alreadySelected[21] == false)
         {
@@ -996,11 +1120,15 @@ public class GameManger : MonoBehaviour
             squareSelector[21].SetActive(true);
             squareSelector[21].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[21].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 21 && alreadySelected[21] == true)
+        if (enemyRoll == 21 && alreadySelected[21] == true)
         {
-            enemyRollColumnFour();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 22 && alreadySelected[27] == false)
         {
@@ -1008,11 +1136,15 @@ public class GameManger : MonoBehaviour
             squareSelector[27].SetActive(true);
             squareSelector[27].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[27].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 22 && alreadySelected[27] == false)
+        if (enemyRoll == 22 && alreadySelected[27] == false)
         {
-            enemyRollColumnFour();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 23 && alreadySelected[33] == false)
         {
@@ -1020,11 +1152,15 @@ public class GameManger : MonoBehaviour
             squareSelector[33].SetActive(true);
             squareSelector[33].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[33].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 23 && alreadySelected[33] == false)
+        if (enemyRoll == 23 && alreadySelected[33] == false)
         {
-            enemyRollColumnFour();
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         else
         {
@@ -1034,6 +1170,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[33].SetActive(true);
                 squareSelector[33].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[33].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[3] && alreadySelected[9] && alreadySelected[15] && alreadySelected[21] && alreadySelected[33])
             {
@@ -1041,6 +1179,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[27].SetActive(true);
                 squareSelector[27].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[27].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[3] && alreadySelected[9] && alreadySelected[15] && alreadySelected[27] && alreadySelected[33])
             {
@@ -1048,6 +1188,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[21].SetActive(true);
                 squareSelector[21].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[21].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[3] && alreadySelected[9] && alreadySelected[21] && alreadySelected[27] && alreadySelected[33])
             {
@@ -1055,6 +1197,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[15].SetActive(true);
                 squareSelector[15].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[15].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[3] && alreadySelected[15] && alreadySelected[21] && alreadySelected[27] && alreadySelected[33])
             {
@@ -1062,6 +1206,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[9].SetActive(true);
                 squareSelector[9].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[9].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[9] && alreadySelected[15] && alreadySelected[21] && alreadySelected[27] && alreadySelected[33])
             {
@@ -1069,6 +1215,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[3].SetActive(true);
                 squareSelector[3].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[3].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
 
             else
@@ -1089,11 +1237,17 @@ public class GameManger : MonoBehaviour
             squareSelector[4].SetActive(true);
             squareSelector[4].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[4].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
         else if (enemyRoll == 24 && alreadySelected[4] == true)
         {
-            enemyRollColumnFive();
+            enemyRoll = GetRandomNumber(25, 29);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 25 && alreadySelected[10] == false)
         {
@@ -1101,11 +1255,17 @@ public class GameManger : MonoBehaviour
             squareSelector[10].SetActive(true);
             squareSelector[10].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[10].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 25 && alreadySelected[10] == true)
+        else if(enemyRoll == 25 && alreadySelected[10] == true)
         {
-            enemyRollColumnFive();
+            enemyRoll = GetRandomNumber(26, 29);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 26 && alreadySelected[16] == false)
         {
@@ -1113,11 +1273,17 @@ public class GameManger : MonoBehaviour
             squareSelector[16].SetActive(true);
             squareSelector[16].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[16].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 26 && alreadySelected[16] == true)
+        else if(enemyRoll == 26 && alreadySelected[16] == true)
         {
-            enemyRollColumnFive();
+            enemyRoll = GetRandomNumber(27, 29);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 27 && alreadySelected[22] == false)
         {
@@ -1125,23 +1291,37 @@ public class GameManger : MonoBehaviour
             squareSelector[22].SetActive(true);
             squareSelector[22].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[22].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 27 && alreadySelected[22] == true)
+        else if(enemyRoll == 27 && alreadySelected[22] == true)
         {
-            enemyRollColumnFive();
+            enemyRoll = GetRandomNumber(24, 27);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 28 && alreadySelected[28] == false)
         {
+            enemyRoll = GetRandomNumber(29, 29);
+
             alreadySelected[28] = true;
             squareSelector[28].SetActive(true);
             squareSelector[28].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[28].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 28 && alreadySelected[28] == true)
+        else if(enemyRoll == 28 && alreadySelected[28] == true)
         {
-            enemyRollColumnFive();
+            enemyRoll = GetRandomNumber(25, 27);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 29 && alreadySelected[34] == false)
         {
@@ -1149,11 +1329,17 @@ public class GameManger : MonoBehaviour
             squareSelector[34].SetActive(true);
             squareSelector[34].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[34].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 29 && alreadySelected[34] == true)
+        else if(enemyRoll == 29 && alreadySelected[34] == true)
         {
-            enemyRollColumnFive();
+            enemyRoll = GetRandomNumber(24, 28);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         else
         {
@@ -1163,6 +1349,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[34].SetActive(true);
                 squareSelector[34].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[34].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[4] && alreadySelected[10] && alreadySelected[16] && alreadySelected[22] && alreadySelected[34])
             {
@@ -1170,6 +1358,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[28].SetActive(true);
                 squareSelector[28].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[28].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[4] && alreadySelected[10] && alreadySelected[16] && alreadySelected[28] && alreadySelected[34])
             {
@@ -1177,6 +1367,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[22].SetActive(true);
                 squareSelector[22].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[22].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[4] && alreadySelected[10] && alreadySelected[22] && alreadySelected[28] && alreadySelected[34])
             {
@@ -1184,6 +1376,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[16].SetActive(true);
                 squareSelector[16].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[16].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[4] && alreadySelected[16] && alreadySelected[22] && alreadySelected[28] && alreadySelected[34])
             {
@@ -1191,6 +1385,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[10].SetActive(true);
                 squareSelector[10].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[10].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[10] && alreadySelected[16] && alreadySelected[22] && alreadySelected[28] && alreadySelected[34])
             {
@@ -1198,12 +1394,14 @@ public class GameManger : MonoBehaviour
                 squareSelector[4].SetActive(true);
                 squareSelector[4].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[4].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
 
-            else
-            {
-                Debug.Log("Error for AI rolling in column five");
-            }
+            //else
+            //{
+            //    Debug.Log("Error for AI rolling in column five");
+            //}
         }
 
         Debug.Log(enemyRoll);
@@ -1218,11 +1416,17 @@ public class GameManger : MonoBehaviour
             squareSelector[5].SetActive(true);
             squareSelector[5].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[5].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 30 && alreadySelected[5] == true)
+        else if(enemyRoll == 30 && alreadySelected[5] == true)
         {
-            enemyRollColumnSix();
+            enemyRoll = GetRandomNumber(31, 35);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 31 && alreadySelected[11] == false)
         {
@@ -1230,11 +1434,17 @@ public class GameManger : MonoBehaviour
             squareSelector[11].SetActive(true);
             squareSelector[11].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[11].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 31 && alreadySelected[11] == true)
+        else if(enemyRoll == 31 && alreadySelected[11] == true)
         {
-            enemyRollColumnSix();
+            enemyRoll = GetRandomNumber(32, 35);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 32 && alreadySelected[17] == false)
         {
@@ -1242,11 +1452,17 @@ public class GameManger : MonoBehaviour
             squareSelector[17].SetActive(true);
             squareSelector[17].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[17].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 32 && alreadySelected[17] == true)
+        else if(enemyRoll == 32 && alreadySelected[17] == true)
         {
-            enemyRollColumnSix();
+            enemyRoll = GetRandomNumber(33, 35);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 33 && alreadySelected[23] == false)
         {
@@ -1254,11 +1470,17 @@ public class GameManger : MonoBehaviour
             squareSelector[23].SetActive(true);
             squareSelector[23].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[23].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 33 && alreadySelected[23] == true)
+        else if(enemyRoll == 33 && alreadySelected[23] == true)
         {
-            enemyRollColumnSix();
+            enemyRoll = GetRandomNumber(34, 35);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 34 && alreadySelected[29] == false)
         {
@@ -1266,11 +1488,17 @@ public class GameManger : MonoBehaviour
             squareSelector[29].SetActive(true);
             squareSelector[29].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[29].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 34 && alreadySelected[29] == true)
+        else if(enemyRoll == 34 && alreadySelected[29] == true)
         {
-            enemyRollColumnSix();
+            enemyRoll = GetRandomNumber(30, 33);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         if (enemyRoll == 35 && alreadySelected[35] == false)
         {
@@ -1278,11 +1506,17 @@ public class GameManger : MonoBehaviour
             squareSelector[35].SetActive(true);
             squareSelector[35].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
             squareSelector[35].GetComponent<Image>().color = aiSelect_Color;
+
+            aiTurnSuccess = true;
         }
-        else if (enemyRoll == 35 && alreadySelected[35] == true)
+        else if(enemyRoll == 35 && alreadySelected[35] == true)
         {
-            enemyRollColumnSix();
+            enemyRoll = GetRandomNumber(30, 34);
+
+            Debug.Log("AI is re-rolling because it selected a taken tile");
+            //AITURN();
         }
+
 
         else
         {
@@ -1292,6 +1526,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[35].SetActive(true);
                 squareSelector[35].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[35].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[5] && alreadySelected[11] && alreadySelected[17] && alreadySelected[23] && alreadySelected[35])
             {
@@ -1299,6 +1535,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[29].SetActive(true);
                 squareSelector[29].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[29].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[5] && alreadySelected[11] && alreadySelected[17] && alreadySelected[29] && alreadySelected[35])
             {
@@ -1306,6 +1544,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[23].SetActive(true);
                 squareSelector[23].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[23].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[5] && alreadySelected[11] && alreadySelected[23] && alreadySelected[29] && alreadySelected[35])
             {
@@ -1313,6 +1553,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[17].SetActive(true);
                 squareSelector[17].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[17].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[5] && alreadySelected[17] && alreadySelected[23] && alreadySelected[29] && alreadySelected[35])
             {
@@ -1320,6 +1562,8 @@ public class GameManger : MonoBehaviour
                 squareSelector[11].SetActive(true);
                 squareSelector[11].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[11].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
             else if (alreadySelected[11] && alreadySelected[17] && alreadySelected[23] && alreadySelected[29] && alreadySelected[35])
             {
@@ -1327,12 +1571,14 @@ public class GameManger : MonoBehaviour
                 squareSelector[5].SetActive(true);
                 squareSelector[5].GetComponentInParent<UnityEngine.UI.Button>().enabled = false;
                 squareSelector[5].GetComponent<Image>().color = aiSelect_Color;
+
+                aiTurnSuccess = true;
             }
 
-            else
-            {
-                Debug.Log("Error for AI rolling in column six");
-            }
+            //else
+            //{
+            //    Debug.Log("Error for AI rolling in column six");
+            //}
         }
 
         Debug.Log(enemyRoll);
@@ -1345,32 +1591,32 @@ public class GameManger : MonoBehaviour
 
     public void RemoveButtonA2()
     {
-        alreadySelected[1] = true;
+        alreadySelected[6] = true;
     }
 
     public void RemoveButtonA3()
     {
-        alreadySelected[2] = true;
+        alreadySelected[12] = true;
     }
 
     public void RemoveButtonA4()
     {
-        alreadySelected[3] = true;
+        alreadySelected[18] = true;
     }
 
     public void RemoveButtonA5()
     {
-        alreadySelected[4] = true;
+        alreadySelected[24] = true;
     }
 
     public void RemoveButtonA6()
     {
-        alreadySelected[5] = true;
+        alreadySelected[30] = true;
     }
 
     public void RemoveButtonB1()
     {
-        alreadySelected[6] = true;
+        alreadySelected[1] = true;
     }
 
     public void RemoveButtonB2()
@@ -1380,32 +1626,32 @@ public class GameManger : MonoBehaviour
 
     public void RemoveButtonB3()
     {
-        alreadySelected[8] = true;
+        alreadySelected[13] = true;
     }
 
     public void RemoveButtonB4()
     {
-        alreadySelected[9] = true;
+        alreadySelected[19] = true;
     }
 
     public void RemoveButtonB5()
     {
-        alreadySelected[10] = true;
+        alreadySelected[25] = true;
     }
 
     public void RemoveButtonB6()
     {
-        alreadySelected[11] = true;
+        alreadySelected[31] = true;
     }
 
     public void RemoveButtonC1()
     {
-        alreadySelected[12] = true;
+        alreadySelected[2] = true;
     }
 
     public void RemoveButtonC2()
     {
-        alreadySelected[13] = true;
+        alreadySelected[8] = true;
     }
 
     public void RemoveButtonC3()
@@ -1415,32 +1661,32 @@ public class GameManger : MonoBehaviour
 
     public void RemoveButtonC4()
     {
-        alreadySelected[15] = true;
+        alreadySelected[20] = true;
     }
 
     public void RemoveButtonC5()
     {
-        alreadySelected[16] = true;
+        alreadySelected[26] = true;
     }
 
     public void RemoveButtonC6()
     {
-        alreadySelected[17] = true;
+        alreadySelected[32] = true;
     }
 
     public void RemoveButtonD1()
     {
-        alreadySelected[18] = true;
+        alreadySelected[3] = true;
     }
 
     public void RemoveButtonD2()
     {
-        alreadySelected[19] = true;
+        alreadySelected[9] = true;
     }
 
     public void RemoveButtonD3()
     {
-        alreadySelected[20] = true;
+        alreadySelected[15] = true;
     }
 
     public void RemoveButtonD4()
@@ -1450,32 +1696,32 @@ public class GameManger : MonoBehaviour
 
     public void RemoveButtonD5()
     {
-        alreadySelected[22] = true;
+        alreadySelected[27] = true;
     }
 
     public void RemoveButtonD6()
     {
-        alreadySelected[23] = true;
+        alreadySelected[33] = true;
     }
 
     public void RemoveButtonE1()
     {
-        alreadySelected[24] = true;
+        alreadySelected[4] = true;
     }
 
     public void RemoveButtonE2()
     {
-        alreadySelected[25] = true;
+        alreadySelected[10] = true;
     }
 
     public void RemoveButtonE3()
     {
-        alreadySelected[26] = true;
+        alreadySelected[16] = true;
     }
 
     public void RemoveButtonE4()
     {
-        alreadySelected[27] = true;
+        alreadySelected[22] = true;
     }
 
     public void RemoveButtonE5()
@@ -1485,32 +1731,32 @@ public class GameManger : MonoBehaviour
 
     public void RemoveButtonE6()
     {
-        alreadySelected[29] = true;
+        alreadySelected[34] = true;
     }
 
     public void RemoveButtonF1()
     {
-        alreadySelected[30] = true;
+        alreadySelected[5] = true;
     }
 
     public void RemoveButtonF2()
     {
-        alreadySelected[31] = true;
+        alreadySelected[11] = true;
     }
 
     public void RemoveButtonF3()
     {
-        alreadySelected[32] = true;
+        alreadySelected[17] = true;
     }
 
     public void RemoveButtonF4()
     {
-        alreadySelected[33] = true;
+        alreadySelected[23] = true;
     }
 
     public void RemoveButtonF5()
     {
-        alreadySelected[34] = true;
+        alreadySelected[29] = true;
     }
 
     public void RemoveButtonF6()
