@@ -29,7 +29,7 @@ public class SelectTile : MonoBehaviour
 
             //tell the game manager that this selector is already active.
 
-            gameManager.ChangeTurns();
+            StartCoroutine(ChangeTurn());
         }
         else if(gameManager.CurrentTurn == GameManger.CurrentPlayerTurn.PLAYER_TWO)
         {
@@ -37,11 +37,17 @@ public class SelectTile : MonoBehaviour
             tileSelector.GetComponent<Image>().color = whoSelected[1];
             button.enabled = false;
 
-            gameManager.ChangeTurns();
+            StartCoroutine(ChangeTurn());
         }
         else
         {
             Debug.Log("Error! Currently it is neither player's turn.");
         }
+    }
+
+    IEnumerator ChangeTurn()
+    {
+        yield return new WaitForSeconds(0.2f);
+        gameManager.ChangeTurns();
     }
 }
