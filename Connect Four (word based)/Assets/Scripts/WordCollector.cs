@@ -64,7 +64,7 @@ public class WordCollector : MonoBehaviour
 
     public void SaveWords()// saves the words and allows the player to select play
     {
-        if (wordCount > 36)
+        if (wordCount > 3)
         {
             bool testForPlay = true;
 
@@ -81,13 +81,13 @@ public class WordCollector : MonoBehaviour
     {
         wordPool.GetComponent<WordPool>().inputWords = words;
 
-        SceneManager.LoadScene("SinglePlayer");
+       // SceneManager.LoadScene("SinglePlayer");
     }
 
     void LoadMultiPlayer()
     {
         wordPool.GetComponent<WordPool>().inputWords = words;
 
-        SceneManager.LoadScene("Multiplayer");
+        //SceneManager.LoadScene("Multiplayer");
     }
 }
